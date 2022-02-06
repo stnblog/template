@@ -1,0 +1,75 @@
+.l-sidebar {
+
+  section {
+    &:not(:last-of-type) {
+      margin: 0 0 30px;
+    }
+  }
+
+  &__list {
+    padding: 0 0 10px 10px;
+  }
+
+  &__item {
+    &--article {
+      position: relative;
+      width: 100%;
+      @include flex($align:center);
+      &:not(:last-of-type) {
+        margin: 0 0 24px;
+      }
+
+      @include mq(md) {
+        flex-direction: row-reverse;
+      }
+
+      a {
+        @include absolute(0,0,0,0);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__img {
+    &--article {
+      width: 34%;
+      overflow: hidden;
+      @include mq(md) {
+        width: 20%;
+      }
+    }
+  }
+
+  &__body {
+    &--article {
+      width: 66%;
+      @include mq(md) {
+        width: 80%;
+      }
+    }
+  }
+
+  &__heading {
+    margin: 0 0 24px;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    letter-spacing: .1em;
+    border-bottom: $line;
+  }
+
+  &__txt {
+    padding-right: 10px;
+    font-size: 1.2rem;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    @include mq(md) {
+      font-size: 1.4rem;
+      padding-left: 20px;
+    }
+    @include mq(sm) {
+      font-size: 1.2rem;
+    }
+  }
+}

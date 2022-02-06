@@ -1,0 +1,36 @@
+.l-dropdown {
+  overflow: hidden;
+  @include absolute($top:82px, $left:0);
+  background: $color-white;
+  transition: height .3s ease;
+  height: 0;
+  // opacity: 0;
+  // visibility: hidden;
+  width: 100%;
+  z-index: 100;
+
+  &__wrap {
+    @include maxWidth(1080px);
+    padding: 64px 0 20px;
+  }
+
+  &__list {
+    overflow: hidden;
+    transition: transform .3s ease;
+    transform: translateY(-283px);
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    overflow: hidden;
+  }
+
+  &__img {
+    &--hotel {
+      &::before {
+        padding-top: 68%;
+      }
+    }
+  }
+}

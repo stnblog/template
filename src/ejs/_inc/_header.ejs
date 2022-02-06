@@ -1,0 +1,128 @@
+<% let title = (pageId === 'home') ? jsonData.siteInfo.name : jsonData.pages[pageId].name + jsonData.siteInfo.name%>
+<% let description = jsonData.pages[pageId].description %>
+<% let filePath = jsonData.pages[pageId].filePath %>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:site_name" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@melon_manga">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <link rel="icon" href="<%= filePath %>assets/images/icon/favicon-32x32.png" sizes="32x32">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="<%= filePath %>assets/styles/vendors/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<%= filePath %>assets/styles/style.css" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+  <header class="l-header">
+    <div class="l-header__inner">
+
+      <h1 class="l-header__logo">
+        <a href="/">
+          <img src="https://placehold.jp/120x54.png" alt="会社名">
+        </a>
+      </h1>
+
+      <nav class="l-header__nav u-dp-pc">
+        <ul class="l-header__list">
+          <li class="l-header__item--nav">
+            <a href="#about">
+              開催概要
+              <span>フェア情報を見る</span>
+            </a>
+          </li>
+          <li class="l-header__item--nav">
+            <a href="#goods">
+              景品一覧
+              <span>豪華賞品をチェック</span>
+            </a>
+          </li>
+          <li class="l-header__item--nav">
+            <a href="#points">
+              FP2倍
+              <span>お得にポイントGET</span>
+            </a>
+          </li>
+          <li class="l-header__item--nav">
+            <a href="#exchange">
+              景品交換
+              <span>2/1開始！</span>
+            </a>
+          </li>
+          <li class="l-header__item--nav">
+            <a href="#buy">
+              通販で購入
+              <span>ポイントを貯めよう</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <button class="l-drawer__trigger js-draw--trigger">
+    <span class="-line"></span>
+  </button>
+
+  <div class="l-drawer__bg js-draw--bg">&nbsp;</div>
+
+  <nav class="l-drawer__content js-draw--content">
+    <div class="l-drawer__wrap">
+      <ul class="l-drawer__list l-drawer__list--menu">
+        <li class="l-drawer__item">
+            <a href="#about">
+              開催概要
+              <span>フェア情報を見る</span>
+            </a>
+        </li>
+        <li class="l-drawer__item">
+          <a href="#goods">
+            景品一覧
+            <span>豪華賞品をチェック</span>
+          </a>
+        </li>
+        <li class="l-drawer__item">
+          <a href="#points">
+            FP2倍
+            <span>お得にポイントGET</span>
+          </a>
+        </li>
+        <li class="l-drawer__item">
+          <a href="#exchange">
+            景品交換
+            <span>2/1開始！</span>
+          </a>
+        </li>
+        <li class="l-drawer__item">
+          <a href="#buy">
+            通販で購入
+            <span>ポイントを貯めよう</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

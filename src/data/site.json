@@ -1,0 +1,33 @@
+{
+  "siteInfo": {
+    "name": "ポートフォリオ",
+    "siteUrl": "サイトのドメイン"
+  },
+  "pages": {
+    "home": {
+      "name": "ホーム - ",
+      "description": "説明文",
+      "filePath": "./"
+    },
+    "about": {
+      "name": "私について - ",
+      "description": "説明文",
+      "filePath": "../"
+    },
+    "gallery": {
+      "name": "ギャラリー - ",
+      "description": "説明文",
+      "filePath": "../"
+    },
+    "work": {
+      "name": "制作物 - ",
+      "description": "説明文",
+      "filePath": "../"
+    },
+    "workDetail": {
+      "name": "制作物記事 - ",
+      "description": "説明文",
+      "filePath": "./../../"
+    }
+  }
+}

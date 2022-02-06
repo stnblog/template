@@ -1,0 +1,24 @@
+.u-dp-pc {
+  display: block;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.u-dp-sp {
+  display: none;
+
+  @include mq(md) {
+    display: block;
+  }
+}
+
+
+.u-flexbox {
+  display: flex;
+}
+
+.u-flexbox-wrap {
+  flex-wrap: wrap;
+}

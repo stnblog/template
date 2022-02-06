@@ -1,0 +1,27 @@
+.js-acc {
+  &__trigger {
+    position: relative;
+    &::after, &::before {
+      content: "";
+      width: 15px;
+      height: 2px;
+      background: $color-white;
+      display: block;
+      @include absolute($top:50%, $right:25px);
+    }
+    &::after {
+      transform: rotate(90deg);
+      transition-duration: .3s;
+    }
+
+    &.is-open {
+      &::after {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+  }
+}

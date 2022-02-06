@@ -1,0 +1,55 @@
+.pageTopScroll {
+  position: fixed;
+  right: 10px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100px);
+  a {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background: $color-bg;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    color: $color-white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size:0.6rem;
+    transition:all 0.3s;
+    i {
+      font-size: 2rem;
+    }
+  }
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove{
+  animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+#page-top.DownMove{
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+    opacity: 1;
+  transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(100px);
+  }
+}

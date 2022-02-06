@@ -1,0 +1,53 @@
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: $color-bg;
+
+  &__inner {
+    height: 80px;
+    padding: 20px 32px 20px 35px;
+    position: relative;
+    @include maxWidth(1100px);
+    @include flex($align:center,$justify:space-between);
+
+    h1 {
+      flex: 0 0 120px;
+
+      a {
+        display: block;
+      }
+    }
+
+
+  }
+
+  &__list {
+    flex: auto;
+    @include flex($align:center, $wrap:wrap, $justify:flex-end);
+
+    li {
+      &:not(:first-of-type) {
+        margin-left: 32px;
+      }
+
+      a {
+        position: relative;
+        font-weight: 700;
+        display: block;
+        transition: 0.2s color cubic-bezier(0.61, 1, 0.88, 1);
+        line-height: 100%;
+
+        span {
+          font-size: 1.2rem;
+          display: block;
+          margin: 8px 0 0;
+          transform: translateY(0);
+          transition: 0.2s all cubic-bezier(0.61, 1, 0.88, 1);
+        }
+      }
+    }
+  }
+}

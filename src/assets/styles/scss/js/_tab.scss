@@ -1,0 +1,21 @@
+.js-tab {
+
+  &--trigger {
+
+  }
+
+  &--content {
+    display: none;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.25, 0.25, 0.75, 0.75),visibility 1s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+
+    &.is-active {
+      animation: kf-animate-slide 1.4s cubic-bezier(0.19, 1, 0.22, 1) both;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+}

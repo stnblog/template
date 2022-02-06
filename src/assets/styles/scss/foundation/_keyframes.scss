@@ -1,0 +1,101 @@
+@keyframes kf-dp-inview {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateY(-189px);
+  }
+
+  10% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kf-img-rotate {
+  0% {
+    opacity: 0;
+    transform: translateY(20%) scale(1) rotateY(90deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1) rotateY(0deg);
+  }
+}
+
+
+@keyframes kf-img-show {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes kf-animate-chars {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    // transform: translateY(0);
+  }
+}
+
+
+@keyframes sliderPagination {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+
+@keyframes kf-animate-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(10%)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+
+
+@keyframes scrollPc {
+  0% {
+    opacity: 0;
+    transform: translateY(0)
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateY(80px)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(80px)
+  }
+}

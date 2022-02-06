@@ -1,0 +1,172 @@
+
+$mq-breakpoints-min: ('xxs': '0px',
+  'xs': '400px',
+  'sm': '767px',
+  'md': '1000px',
+  'lg': '1200px',
+) !default;
+
+$mq-breakpoints-max: ('xxs': '440px',
+  'xs': '399px',
+  'sm': '766px',
+  'md': '999px',
+  'lg': '1199px',
+) !default;
+
+@mixin mq-target($breakpoint: md) {
+  @media screen and (min-width: #{map-get($mq-breakpoints-min, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin mq($breakpoint: md) {
+  @media screen and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin bgCover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin maxWidth($width) {
+  max-width: $width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin column4($width) {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    flex: 0 0 $width;
+    max-width: $width;
+  }
+
+  &::before {
+    order: 1;
+  }
+
+  &::after {
+    order: 2;
+  }
+}
+
+@mixin flex($justify:null, $align:null, $wrap:null) {
+  display: flex;
+
+  @if $justify !=null {
+    justify-content: $justify;
+  }
+
+  @if $align !=null {
+    align-items: $align;
+  }
+
+  @if $wrap !=null {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin absolute($top:null, $right:null, $bottom:null, $left:null) {
+  position: absolute;
+
+  @if $top !=null {
+    top: $top;
+  }
+
+  @if $right !=null {
+    right: $right;
+  }
+
+  @if $bottom !=null {
+    bottom: $bottom;
+  }
+
+  @if $left !=null {
+    left: $left;
+  }
+}
+
+@mixin flexBasis($fb:null, $fb-md:null, $fb-sm:null, $fb-xs:null) {
+  @if $fb !=null {
+    flex: 0 0 $fb;
+    max-width: $fb;
+
+    @include mq(md) {
+      @if $fb-md !=null {
+        flex: 0 0 $fb-md;
+        max-width: $fb-md;
+      }
+    }
+
+    @include mq(sm) {
+      @if $fb-md !=null {
+        flex: 0 0 $fb-sm;
+        max-width: $fb-sm;
+      }
+    }
+
+    @include mq(xs) {
+      @if $fb-xs !=null {
+        flex: 0 0 $fb-xs;
+        max-width: $fb-xs;
+      }
+    }
+  }
+}
+
+@mixin animation($name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: forwards) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    // アニメーションが開始してから終了するまでの時間
+
+    timing-function: $timing-function;
+    // アニメーションのイージング（加速度）を指定します。初期値は「ease」
+    // ease	開始と終了をゆっくり変化
+    // linear	一定の速度で変化
+    // ease-in	最初はゆっくりで、だんだん速く
+    // ease-out	最初は速く、だんだんゆっくり
+
+    delay: $delay;
+    // アニメーションが始まるまでの時間を指定
+    iteration-count: $iteration-count;
+    // アニメーションを何回繰り返すか指定
+    direction: $direction;
+    // アニメーションの再生方向を指定
+    fill-mode: $fill-mode;
+    // アニメーションの開始前と終了後のスタイルを指定
+    //     forwards	アニメーション終了時にその状態のスタイルを適用します。
+    // backwards	アニメーション終了時にアニメーションする前のスタイルを適用します。
+    // both	forwardsとbackwardsが両方適応されます。
+  }
+}
+
+
+@mixin icon($fileName, $width, $height) {
+	background: url($fileName) no-repeat 50% 50%;
+	background-size: $width $height;
+	width: $width;
+	height: $height;
+}

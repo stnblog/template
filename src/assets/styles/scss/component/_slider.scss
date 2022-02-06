@@ -1,0 +1,102 @@
+.c-slider {
+  user-select: none;
+  // padding: 0 calc((100vw - 1400px) / 2);
+
+  &__heading {
+    margin: 0 0 20px;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding-left: 40px;
+
+    @include mq-target(md) {
+      margin: 0;
+    }
+
+    &::before {
+      content: "";
+      height: 1px;
+      width: 30px;
+      background: $color-main;
+      @include absolute($top:50%, $left:0);
+    }
+  }
+
+  &__wrap {
+    width: 100%;
+    box-sizing: border-box;
+
+    @include mq(sm) {
+      box-sizing: content-box;
+    }
+  }
+
+  &__column {
+    @include flex($align:center, $justify:space-between,$wrap:wrap);
+
+    & div {
+      // width: 100%;
+    }
+  }
+
+  &__slide {
+    margin-right: 15px;
+    width: 98%;
+
+    @include mq-target(sm) {
+      margin-right: 20px;
+      width: calc((100% - 40px) / 2);
+    }
+
+    @include mq-target(md) {
+      margin-right: 20px;
+      width: calc((100% - 40px) / 2);
+    }
+
+    @include mq-target(lg) {
+      margin-right: 20px;
+      width: calc((100% - 60px) / 4);
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  // &__scrollbar {
+  //   position: relative;
+  //   background-color: transparent;
+  //   border-radius: 10px;
+  //   position: relative;
+  //   width: 100%;
+  //   max-width: 660px;
+  //   @include flex($align:center);
+
+  //   &::before {
+  //     content: "";
+  //     display: block;
+  //     @include absolute($top:0,$left:0,$bottom:0);
+  //     width: 100%;
+  //     margin: auto;
+  //     height: 4px;
+  //     background-color: $color-grey-light-3;
+  //   }
+
+  //   & .drag {
+  //     cursor: pointer;
+  //     position: relative;
+  //     height: 19px;
+
+  //     &::before {
+  //       content: "";
+  //       display: block;
+  //       @include absolute(0,0,0,0);
+  //       width: 18px;
+  //       height: 18px;
+  //       margin: auto;
+  //       // border-radius: 50%;
+  //       background: $color-key;
+  //     }
+  //   }
+  // }
+}

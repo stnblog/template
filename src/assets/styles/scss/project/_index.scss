@@ -1,0 +1,371 @@
+// 共通パーツ
+//--------------------------------------------------------------------
+
+.c-sec {
+
+  &__inner {
+    position: relative;
+    padding: 140px 0 14vw;
+    z-index: 1;
+  }
+
+  &__wrap {
+    background: $color-bg;
+    position: relative;
+    @include maxWidth(980px);
+    margin-top: 20px;
+    width: 90%;
+    padding: 6% 4%;
+    box-shadow: 8px 8px 0 rgb(0 0 0 / 25%);
+  }
+
+  &__bg {
+    overflow: hidden;
+    @include absolute($top:0, $left:0);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    &::before {
+      content: '';
+      @include absolute($top:0, $left:0);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__ttl {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 600;
+    color: $color-bg;
+
+    span {
+      font-weight: 400;
+      font-size: 1.6rem;
+      display: block;
+    }
+  }
+
+  @include mq-target(sm) {
+    &__wrap {
+      width: 95%;
+      margin-top: 60px;
+      padding: 50px;
+    }
+
+    &__ttl {
+      font-size: 8rem;
+    }
+  }
+}
+
+.c-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
+
+  div {
+    padding: 10px;
+  }
+
+  .one {
+    grid-column: span 2 / auto;
+  }
+
+  .two, .three, .four {
+    grid-column: span 2 / auto;
+
+    div {
+      position: relative;
+      height: 100%;
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 118%;
+
+        @include mq-target(md) {
+          padding-top: 132%;
+        }
+      }
+
+      figure {
+        position: absolute;
+        inset: 0px;
+        cursor: pointer;
+        background: url(https://placehold.jp/1320x1760.png) center center / cover no-repeat;
+      }
+    }
+  }
+
+  .two {
+    grid-column: span 2 / auto;
+  }
+}
+
+@include mq-target(sm) {
+  
+  .c-grid {
+    grid-template-columns: repeat(11, 1fr);
+
+    .one {
+      grid-row: span 10 / auto;
+      grid-column: span 11 / auto;
+    }
+
+    .two, .three, .four {
+      grid-column: span 4;
+    }
+
+    .two {
+      grid-column: span 7;
+      grid-row: span 21;
+    }
+  }
+}
+
+@include mq-target(md) {
+  .c-grid {
+    grid-template-columns: repeat(14, 1fr);
+
+    div {
+      padding: 20px;
+    }
+
+    .one {
+      grid-column: span 8;
+      grid-row: span 8 / auto;
+    }
+
+    .two {
+      grid-column: span 6;
+
+      div {
+        &::before {
+          padding-top: 109%;
+        }
+      }
+    }
+  }
+}
+
+
+// 独立パーツ
+//--------------------------------------------------------------------
+.p-mv {
+  position: relative;
+  box-shadow: 0 8px 0 rgb(0 0 0 / 25%);
+  z-index: 10;
+
+  &__inner {
+    padding: 120px 0 70px;
+    @include maxWidth(1400px);
+  }
+
+  &__img {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+}
+
+.p-about {
+  position: relative;
+  box-shadow: 0 8px 0 rgb(0 0 0 / 25%);
+  z-index: 9;
+
+  &__bg {
+    &::before {
+      background: url(/assets/images/bg/sec_bg_01.png);
+      background-size: 100px;
+    }
+  }
+
+  &__category {
+    width: 90%;
+    background: $color-grey-light-3;
+    padding: 30px 40px 50px;
+    margin: 30px auto 0;
+
+    h3 {
+      font-size: calc(0.8rem + ((1vw - 0.48rem) * 0.5556));
+
+      &:not(:first-of-type) {
+        margin: 30px 0 0;
+      }
+    }
+  }
+
+  &__list {
+    @include flex($align:center, $justify:space-between, $wrap:wrap);
+    li {
+      background: $color-bg;
+      margin: 20px 0 0;
+
+      @include mq-target(sm) {
+        flex: 0 0 48%;
+      }
+    }
+  }
+
+  dl {
+    &:not(:first-of-type) {
+      margin: 50px 0 0;
+    }
+
+    @include mq-target(sm) {
+      @include flex($justify:center);
+    }
+
+    dt {
+      border: 1px solid $color-main;
+      border-radius: 20px;
+
+      @include mq-target(sm) {
+        height: 40px;
+        flex: 0 0 180px;
+      }
+
+      span {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 40px;
+      }
+    }
+
+    dd {
+      padding: 16px 0 0;
+      flex: auto;
+      text-align: left;
+
+      @include mq-target(sm) {
+        padding: 11px 0 0 20px;
+      }
+
+      span {
+        font-size: 1.2rem;
+        display: block;
+        padding-left: 1em;
+        text-indent: -1em;
+
+        &:not(:first-of-type) {
+          margin: 6px 0 0;
+        }
+
+        @include mq-target(sm) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+
+  }
+
+}
+
+.p-goods {
+  position: relative;
+  box-shadow: 0 8px 0 rgb(0 0 0 / 25%);
+  z-index: 8;
+
+  &__bg {
+    &::before {
+      background: url(/assets/images/bg/sec_bg_02.png);
+      background-size: 200px;
+    }
+  }
+
+  &__wrap {
+    max-width: 1300px;
+    padding: 10px;
+  }
+
+  &__box {
+    h3 {
+      padding: 20px;
+      text-align: left;
+      color: $color-bg;
+      background: $color-main;
+      font-size: 2rem;
+      @include flex($align:center);
+
+      span {
+        padding-left: 4%;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  @include mq-target(sm) {
+    &__box {
+      h3 {
+        font-size: 4rem;
+
+        span {
+          font-size: 2.6rem;
+        }
+      }
+    }
+  }
+
+  @include mq-target(md) {
+    &__wrap {
+      padding: 30px;
+    }
+  }
+}
+
+.p-points {
+  &__bg {
+    &::before {
+      background: url(/assets/images/bg/sec_bg_03.png);
+      background-size: 100px;
+    }
+  }
+
+  &__wrap {
+    max-width: 1300px;
+    padding: 20px 10px 0;
+  }
+
+  &__list {
+    @include column4(50%);
+
+    li {
+      margin: 0 10px 20px;
+      width: calc(50% - 20px);
+    }
+  }
+
+  @include mq-target(sm) {
+
+    &__box {
+      max-width: 1300px;
+      padding: 40px 20px 0;
+    }
+
+
+    &__list {
+      @include column4(33%);
+  
+      li {
+        margin: 0 20px 40px;
+        width: calc(33% - 40px);
+      }
+    }
+  }
+
+  @include mq-target(md) {
+    &__list {
+      @include column4(20%);
+  
+      li {
+        margin: 0 20px 40px;
+        width: calc(20% - 40px);
+      }
+    }
+  }
+}

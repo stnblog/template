@@ -1,0 +1,100 @@
+
+
+.c-modal {
+
+  &:hover {
+    .c-modal__btn--prev, .c-modal__btn--next {
+      visibility: visible;
+    }
+  }
+
+  &__pagi {
+    z-index: 0;
+    width: initial;
+    bottom: 12px;
+  }
+
+
+  &__btn {
+    &--close {
+      margin-left: auto;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+
+      span {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        margin: auto;
+        background-color: #fff;
+
+        @include mq-target(sm) {
+          width: 30px;
+          height: 2px;
+
+        }
+
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    &--prev,&--next {
+      visibility: hidden;
+      background: $color-white;
+      @include absolute($top:50%);
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      @include flex($align:center,$justify:center);
+      box-shadow: $box-shadow-dark-1;
+      border-radius: 50%;
+      overflow: hidden;
+
+      @include mq-target(sm) {
+        width: 50px;
+        height: 50px;
+      }
+
+      &::after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        @include bgCover;
+        position: relative;
+      }
+    }
+
+    &--prev {
+      left: 10px;
+      right: auto;
+
+      &::after {
+        right: 1px;
+        background-image: url(../../assets/images/SVG/arrow/arrow-left-black.svg);
+      }
+    }
+
+    &--next {
+      right: 10px;
+      left: auto;
+
+      &::after {
+
+        left: 1px;
+        background-image: url(../../assets/images/SVG/arrow/arrow-right-black.svg);
+      }
+    }
+  }
+}

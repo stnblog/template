@@ -1,0 +1,107 @@
+.c-button {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.12em;
+  font-size: 1.2rem;
+  color: inherit;
+  vertical-align: middle;
+  @include mq(md) {
+    font-size: 1.2rem;
+  }
+
+  a {
+    color: $color-main;
+  }
+
+  &--border {
+    overflow: hidden;
+    text-transform: uppercase;
+    padding: 0 30px 7px 0;
+    transition: 0.2s all cubic-bezier(0.61, 1, 0.88, 1);
+    transition: opacity .2s ease-out;
+    color: $color-main;
+
+    &::before, &::after {
+      content: "";
+      @include absolute($bottom:0, $left:0);
+      width: 100%;
+      height: 1px;
+      transition: all .5s;
+    }
+
+    &::after {
+      background: $color-green-light-2;
+      transform: translateX(100%);
+    }
+
+    &::before {
+      background: $color-main;
+    }
+    &:hover::after {
+      transform: translateX(0);
+    }
+
+    &:hover::before {
+      width: 0;
+      background: $color-green-light-2;
+    }
+  }
+
+  &--square {
+    position: relative;
+    height: 54px;
+    line-height: 54px;
+    width: 100%;
+    max-width: 240px;
+    background: $color-main;
+    overflow: hidden;
+    margin: auto;
+
+    a {
+      color: white;
+    padding: 0 30px;
+    display: block;
+    transition: all .5s ease;
+    position: relative;
+    z-index: 2;
+    }
+
+  }
+
+  &--cross {
+    background: $color-main;
+    padding: 10px 24px;
+    white-space: nowrap;
+    border-radius: 12px;
+    overflow: hidden;
+    // border: 1px solid transparent;
+    color: $color-bg;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $color-white;
+      background: $color-bg;
+    }
+
+    // &::before,&::after {
+    //   content: "";
+    //   position: absolute;
+    //   background: $color-main;
+    //   transition: all 0.3s linear;
+    // }
+
+    // &::before {
+    //   width: calc(100% + 2px);
+    //   height: 1px;
+    //   bottom: -6px;
+    //   left: 10px;
+    // }
+
+    // &::after {
+    //   width: 1px;
+    //   height: calc(100% + 2px);
+    //   top: 10px;
+    //   right: -6px;
+    // }
+  }
+}

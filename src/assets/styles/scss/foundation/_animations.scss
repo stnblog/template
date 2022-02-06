@@ -1,0 +1,209 @@
+// fade
+//--------------------------------------------------------------------
+$fades:("Up": translateY(40px),
+  "Down": translateY(-40px),
+  "Left": translateX(40px),
+  "Right": translateX(-40px));
+
+@each $key,
+$fade in $fades {
+
+  .js-scroll--fade#{$key} {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: ($fade);
+    transition: opacity 1.2s, transform 0.6s;
+
+    &.is-anim {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+}
+
+
+// slide
+//--------------------------------------------------------------------
+$slides:("Up": translateY(50%),
+  "Down": translateY(-50%),
+  "Left": translateX(50%),
+  "Right": translateX(-50%));
+
+@each $key,
+$slide in $slides {
+
+  .js-scroll--slide#{$key} {
+    opacity: 0;
+    overflow: hidden;
+    transform: ($slide);
+    transition: opacity 1.4s, transform 1s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
+    &.is-anim {
+      opacity: 1;
+      overflow: visible;
+      transform: translate(0);
+    }
+  }
+}
+
+
+// cover
+//--------------------------------------------------------------------
+$covers:("Up": translateY(100%),
+  "Down": translateY(-100%),
+  "Left": translateX(100%),
+  "Right": translateX(-100%));
+
+@each $key,
+$cover in $covers {
+
+  .js-scroll--cover#{$key} {
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: '';
+      @include absolute($left:0, $top:0);
+      height: 100%;
+      width: 100%;
+      transition: all cubic-bezier(0.33, 1, 0.68, 1) .6s .3s;
+    }
+
+    &::before {
+      background: $color-bg;
+      transition-delay: .2s;
+      z-index: 10;
+    }
+
+    &::after {
+      background: $color-bg;
+      z-index: 11;
+    }
+
+
+    &.is-anim {
+
+      &::before,
+      &::after {
+        transform: ($cover);
+      }
+    }
+  }
+}
+
+
+// rotate
+//--------------------------------------------------------------------
+.js-scroll--rotate {
+  opacity: 0;
+
+  &.is-anim {
+    opacity: 1;
+    @include animation($name: kf-img-rotate,
+      $duration: 2s,
+      $timing-function: cubic-bezier(0.23, 1, 0.32, 1),
+      $fill-mode: both);
+  }
+
+  &-delay {
+    opacity: 0;
+    // transition: opacity .1s, transform 1.2s;
+    // transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
+    &.is-anim {
+      opacity: 1;
+      @include animation($name: kf-img-rotate,
+        $duration: 1.2s,
+        $timing-function: cubic-bezier(0.23, 1, 0.32, 1),
+        $fill-mode: both);
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.2s;
+        }
+      }
+    }
+  }
+}
+
+// turn
+//--------------------------------------------------------------------
+.js-scroll--turn {
+  clip-path: polygon(0 100%, 0 100%, 0 100%);
+  transition: clip-path 1s cubic-bezier(.25, .46, .45, .94), -webkit-clip-path 1s cubic-bezier(.6, .8, .8, 1.2);
+
+  &.is-anim {
+    clip-path: polygon(0 -100%, 0 100%, 200% 100%);
+  }
+}
+
+// scale
+//--------------------------------------------------------------------
+.js-scroll {
+
+  &--scale {
+    opacity: 0;
+    transition: opacity 1.4s cubic-bezier(0.61, 1, 0.88, 1), transform 1.4s cubic-bezier(0.61, 1, 0.88, 1);
+
+    &.is-anim {
+      opacity: 1;
+      @include animation($name: kf-img-show,
+        $duration: 1s,
+        $timing-function: cubic-bezier(0.61, 1, 0.88, 1),
+        $fill-mode: both);
+    }
+
+    &-delay {
+      opacity: 0;
+
+      &.is-anim {
+        opacity: 1;
+        @include animation($name: kf-img-show,
+          $duration: 1s,
+          $timing-function: ease,
+          $fill-mode: both);
+
+        @for $i from 1 through 9 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 0.1s;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// char
+//--------------------------------------------------------------------
+
+.animate-heading {
+  opacity: 0;
+
+  &.inview {
+    opacity: 1;
+
+    & .char {
+      display: inline-block;
+    }
+  }
+
+  & .char {
+    opacity: 0;
+  }
+}
+
+.animate-heading.inview .char {
+  @include animation($name: kf-animate-chars,
+    $duration: 0.65s,
+    $timing-function: ease,
+    $fill-mode: both);
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.06s;
+    }
+  }
+}
