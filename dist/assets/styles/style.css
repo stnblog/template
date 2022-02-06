@@ -2279,7 +2279,7 @@ img {
   z-index: 9;
 }
 .p-about__bg::before {
-  background: url(/assets/images/bg/sec_bg_01.png);
+  background: url(../../assets/images/bg/sec_bg_01.png);
   background-size: 100px;
 }
 .p-about__category {
@@ -2382,7 +2382,7 @@ img {
   z-index: 8;
 }
 .p-goods__bg::before {
-  background: url(/assets/images/bg/sec_bg_02.png);
+  background: url(../../assets/images/bg/sec_bg_02.png);
   background-size: 200px;
 }
 .p-goods__wrap {
@@ -2421,7 +2421,7 @@ img {
 }
 
 .p-points__bg::before {
-  background: url(/assets/images/bg/sec_bg_03.png);
+  background: url(../../assets/images/bg/sec_bg_03.png);
   background-size: 100px;
 }
 .p-points__wrap {
